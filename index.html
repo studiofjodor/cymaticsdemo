@@ -334,7 +334,8 @@ fileInput.addEventListener('change', async e=>{
 
 document.getElementById('demo-btn').addEventListener('click', async () => {
   if (!audioCtx) initAudio();
-  player.src = '/demo.mp3';
+  player.crossOrigin = 'anonymous';
+  player.src = 'https://fjodor.studio/library/Demolongversion.mp3';
   hint.style.opacity = '0';
   try {
     await player.play();
