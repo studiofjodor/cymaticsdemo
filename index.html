@@ -334,13 +334,12 @@ fileInput.addEventListener('change', async e=>{
 
 document.getElementById('demo-btn').addEventListener('click', async () => {
   if (!audioCtx) initAudio();
-  player.crossOrigin = 'anonymous';
-  player.src = 'https://raw.githubusercontent.com/studiofjodor/cymaticsdemo/main/demo.mp3';
+  player.src = '/demo.mp3';
   hint.style.opacity = '0';
   try {
     await player.play();
     if (audioCtx.state === 'suspended') await audioCtx.resume();
-  } catch(err) {
+  } catch (err) {
     console.error('Demo error:', err);
   }
 });
