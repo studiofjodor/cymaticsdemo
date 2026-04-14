@@ -332,14 +332,17 @@ fileInput.addEventListener('change', async e=>{
   catch(err){ console.error('Upload error:',err); }
 });
 
-document.getElementById('demo-btn').addEventListener('click', async ()=>{
-  if(!audioCtx) initAudio();
-  player.removeAttribute('crossOrigin');
+document.getElementById('demo-btn').addEventListener('click', async () => {
+  if (!audioCtx) initAudio();
   player.crossOrigin = 'anonymous';
-  player.src = 'https://raw.githubusercontent.com/studiofjodor/cymaticsdemo/refs/heads/main/demo.mp3';
-  hint.style.opacity='0';
-  try { await player.play(); if(audioCtx.state==='suspended') await audioCtx.resume(); }
-  catch(err){ console.error('Demo error:',err); }
+  player.src = 'https://raw.githubusercontent.com/studiofjodor/cymaticsdemo/main/demo.mp3';
+  hint.style.opacity = '0';
+  try {
+    await player.play();
+    if (audioCtx.state === 'suspended') await audioCtx.resume();
+  } catch(err) {
+    console.error('Demo error:', err);
+  }
 });
 
 player.addEventListener('play',()=>{ if(!audioCtx) initAudio(); });
